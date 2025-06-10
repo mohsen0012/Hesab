@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اپلیکیشن حسابداری شخصی</title>
+    <!-- اتصال به فایل CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- فونت وزیرمتن از CDN -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>حسابداری شخصی</h1>
+        </header>
+
+        <!-- بخش خلاصه حساب -->
+        <main>
+            <section class="summary">
+                <div class="card">
+                    <h4>موجودی کل</h4>
+                    <h2 id="balance">۰ ریال</h2>
+                </div>
+                <div class="card income-card">
+                    <h4>مجموع درآمد</h4>
+                    <h2 id="total-income">۰ ریال</h2>
+                </div>
+                <div class="card expense-card">
+                    <h4>مجموع هزینه</h4>
+                    <h2 id="total-expense">۰ ریال</h2>
+                </div>
+            </section>
+
+            <!-- فرم افزودن تراکنش جدید -->
+            <section class="transaction-form-section">
+                <h3>افزودن تراکنش جدید</h3>
+                <form id="transaction-form">
+                    <input type="hidden" id="transaction-id">
+                    <div class="form-control">
+                        <label for="title">عنوان</label>
+                        <input type="text" id="title" placeholder="مثلا: خرید نان" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="amount">مبلغ (ریال)</label>
+                        <input type="number" id="amount" placeholder="مبلغ را به ریال وارد کنید" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="type">نوع تراکنش</label>
+                        <select id="type" required>
+                            <option value="income">درآمد</option>
+                            <option value="expense">هزینه</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="date">تاریخ (فرمت: ۱۴۰۳/۰۱/۱۵)</label>
+                        <input type="text" id="date" placeholder="مثلا: ۱۴۰۳/۰۴/۲۰" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="description">توضیحات (اختیاری)</label>
+                        <textarea id="description" rows="3" placeholder="توضیحات بیشتر..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">افزودن تراکنش</button>
+                    <button type="button" id="cancel-edit-btn" class="btn btn-secondary" style="display: none;">انصراف از ویرایش</button>
+                </form>
+            </section>
+
+            <!-- لیست تراکنش‌ها -->
+            <section class="transactions-list-section">
+                <h3>تاریخچه تراکنش‌ها</h3>
+                <div id="transaction-list">
+                    <!-- تراکنش‌ها در اینجا با جاوااسکریپت اضافه می‌شوند -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>طراحی شده با ❤️ برای مدیریت مالی ساده</p>
+        </footer>
+    </div>
+
+    <!-- کتابخانه jsPDF از CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- فایل فونت فارسی برای jsPDF (باید در پوشه libs قرار داشته باشد) -->
+    <script src="libs/Vazirmatn-normal.js"></script>
+    <!-- اتصال به فایل JavaScript اصلی -->
+    <script src="script.js"></script>
+
+</body>
+</html>
